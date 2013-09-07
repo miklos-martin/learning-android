@@ -38,11 +38,11 @@
         <activity
             android:name="miklos.martin.learningandroid.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="miklos.martin.learningandroid.MAINACTIVITY" />
+        </activity>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <activity
+            android:name="miklos.martin.learningandroid.TextPlay"
+            android:label="@string/app_name" >
         </activity>
 
     </application>
