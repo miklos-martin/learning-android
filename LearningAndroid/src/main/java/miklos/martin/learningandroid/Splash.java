@@ -22,7 +22,7 @@ public class Splash extends Activity {
                 } catch ( InterruptedException e ) {
                     e.printStackTrace();
                 } finally {
-                    Intent openMain = new Intent( "miklos.martin.learningandroid.MAINACTIVITY" );
+                    Intent openMain = new Intent( "miklos.martin.learningandroid.MENU" );
                     startActivity( openMain );
                 }
             }
