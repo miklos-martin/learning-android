@@ -1,15 +1,20 @@
 # incremental data. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1378561451000 421 1d6f49f899e256a80bf7abb1988e1eda82aed479 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$menu.class
+1378563873000 421 bec847ecf4b74e10ee0b1d4034c08b0d43ad7792 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$menu.class
 1378561451000 367 215a05728857ff377270ab99dfe1e6228c8ee94f /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/BuildConfig.class
 1378356201000 563264 44ec51e9d395a47aab135e5e1b556c0007442156 /home/miki/Programs/android-studio/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar
+1378562363000 1587 e99bf9f19fd977fd8bf95a4ca3559ec5fc767e2c /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/MainActivity.class
+1378562363000 1232 89bed8840b192ca7dc0152388dd6514ec21607fe /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/MainActivity$1.class
+1378563873000 787 03eec6b5bce7c7fe0c2c8af5416ebd3bb89f5d7a /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R.class
+1378564784000 1220 cdb9090d92cfa9e5a52ab421559b7ff02bf02273 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/Splash$1.class
+1378562363000 1232 78d953e626819028a3eeca3bbf41743e6630612c /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/MainActivity$2.class
 1378561451000 373 cc26be8b11c6432195f350c8cee9cfbd0e1d46ed /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$attr.class
-1378561451000 436 acdc046183822cfdcfc6bc28209544ca7e90090f /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$layout.class
+1378563873000 466 7312d039cd968ba7ca39474566fa53f0787ebe8e /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$layout.class
+1378564784000 1796 b2012477e4f081aa480cb6031d6e750f91a581d8 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/Menu.class
 1378561451000 494 c5886ebfbf803e4ea440d8ee4d366d8251491acb /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$dimen.class
-1378561451000 426 d901f1509f32ba4cb3ce1751c87d6c9918f45598 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$id.class
-1378561451000 505 c95f4fc4107d9923fc20feb6dc716e0fc51b31e7 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$string.class
-1378561451000 839 72eb628febc40c663caafc01a5e4b0db417a443e /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/MainActivity.class
-1378561451000 787 055265fec7819ca37be56cb701369d26d6f53a01 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R.class
+1378563873000 865 512f389442c5cfc2a73491efe357109c296c5f4f /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/Splash.class
+1378563873000 550 bfda4059fb58d037cf56821205d7d7e1a3003a11 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$id.class
+1378563873000 505 1e013bdfaf549317b0a590681ccba1a5ed70ac36 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$string.class
 1378561451000 440 d1f505679e650ebf6e8637bbb0b4ded06b2eb16d /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$drawable.class
-1378561451000 464 a4935a450c22e352fc7b646808edce5757102202 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$style.class
+1378563873000 464 682761dcbf21904af34ee2c8ba7cd8ef03107030 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/classes/debug/miklos/martin/learningandroid/R$style.class

@@ -2,12 +2,13 @@
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
 1378561449000 4440 df3b6bf5de6d48e208cbaa3c558bea60d6bb105d /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/drawable-hdpi/ic_launcher.png
-1378561448000 778 a21edc561b6821a93b93f8c71f39e1bdf97ecaf6 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/layout/activity_main.xml
+1378562362000 1849 fd59d748960cdbc1df75c9a9b22d2b03d8c8e1b9 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/layout/activity_main.xml
 1378561448000 265 e3a90743ef0034090ef352074c9aec60f7d23c06 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/values-sw720dp-land/values.xml
 1378561448000 334 c162fd02616674d2abc874a1281de3a1b61a91e7 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/values-v11/values.xml
 1378561448000 362 9297f3f9f516d454bc971c832441865c4bf13dc4 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/menu/main.xml
 1378561449000 9830 df6937a8acaf3f14092507a90c8674064cbb44e1 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/drawable-xxhdpi/ic_launcher.png
 1378561448000 348 84bb775b19f1cfc1c386ed97586e002e8fbda194 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/values-v14/values.xml
 1378561449000 2721 21fdf69556733f7204f30c878ebf888f78131b2e /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/drawable-mdpi/ic_launcher.png
+1378563872000 590 3becba19b894e9859ab116a743150beda08137e6 /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/layout/splash.xml
 1378561448000 1173 3755ac3d8cba7b80d94a0c300721680e96e8345e /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/values/values.xml
 1378561449000 6007 4f4b1849fd6da70dc0c124e59bcbd685f85a61fb /home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/all/debug/drawable-xhdpi/ic_launcher.png

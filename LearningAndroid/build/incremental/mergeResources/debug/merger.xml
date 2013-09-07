@@ -101,6 +101,11 @@
                     <!-- API 11 theme customizations can go here. -->
                 </style>
             </file>
+            <file
+                name="splash"
+                path="/home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/src/main/res/layout/splash.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/home/miki/AndroidStudioProjects/LearningAndroidProject/LearningAndroid/build/res/rs/debug" />
     </dataSet>
