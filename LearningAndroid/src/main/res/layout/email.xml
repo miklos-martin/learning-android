@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="left|center_vertical" >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" >
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Recipent"
+                    android:id="@+id/textView"
+                    android:layout_gravity="left|center_vertical" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/etRecipent"
+                    android:layout_gravity="center"
+                    android:hint="Recipent's email address" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Subject"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="left|center_vertical"
+                    android:paddingRight="10dp"/>
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etSubject"
+                    android:layout_gravity="left|center_vertical"
+                    android:hint="Subject" />
+            </LinearLayout>
+
+
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:id="@+id/textView3"
+            android:layout_gravity="left|center_vertical"
+            android:paddingTop="10dp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/etMessage"
+                android:layout_gravity="left|center_vertical"
+                android:hint="Type your multiline message here" />
+
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:id="@+id/bSend"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

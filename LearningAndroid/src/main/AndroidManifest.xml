@@ -45,6 +45,11 @@
             android:label="@string/app_name" >
         </activity>
 
+        <activity
+            android:name="miklos.martin.learningandroid.Email"
+            android:label="@string/app_name" >
+        </activity>
+
     </application>
 
 </manifest>
