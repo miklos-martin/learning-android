@@ -23,6 +23,7 @@ public class Email extends Activity implements View.OnClickListener {
         setContentView( R.layout.email );
 
         initMembers();
+        send.setOnClickListener( this );
     }
 
     private void initMembers() {
