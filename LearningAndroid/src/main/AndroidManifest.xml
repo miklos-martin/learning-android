@@ -42,12 +42,17 @@
 
         <activity
             android:name="miklos.martin.learningandroid.TextPlay"
-            android:label="@string/app_name" >
+            android:label="@string/text_play" >
         </activity>
 
         <activity
             android:name="miklos.martin.learningandroid.Email"
-            android:label="@string/app_name" >
+            android:label="@string/email" >
+        </activity>
+
+        <activity
+            android:name="miklos.martin.learningandroid.Camera"
+            android:label="@string/camera" >
         </activity>
 
     </application>
