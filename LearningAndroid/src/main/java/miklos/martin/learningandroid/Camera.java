@@ -2,6 +2,7 @@ package miklos.martin.learningandroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -15,7 +16,8 @@ public class Camera extends Activity implements View.OnClickListener {
 
     ImageView picture;
     ImageButton capture;
-    int result = 0;
+    int cameraData = 0;
+    Bitmap bmp;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -33,7 +35,18 @@ public class Camera extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick ( View view ) {
-        Intent intent = new Intent( MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA );
-        startActivityForResult( intent, result );
+        Intent intent = new Intent( MediaStore.ACTION_IMAGE_CAPTURE );
+        startActivityForResult( intent, cameraData );
+    }
+
+    @Override
+    protected void onActivityResult ( int requestCode, int resultCode, Intent data ) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        if ( resultCode == RESULT_OK ) {
+            Bundle extras = data.getExtras();
+            bmp = (Bitmap) extras.get( "data" );
+            picture.setImageBitmap( bmp );
+        }
     }
 }
