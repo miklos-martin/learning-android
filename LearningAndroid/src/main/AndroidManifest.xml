@@ -56,6 +56,16 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name="miklos.martin.learningandroid.Data"
+            android:label="@string/passing_data" >
+        </activity>
+
+        <activity
+            android:name="miklos.martin.learningandroid.Opened"
+            android:label="@string/passing_data" >
+        </activity>
+
     </application>
 
 </manifest>

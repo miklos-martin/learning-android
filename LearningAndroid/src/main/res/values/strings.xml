@@ -7,5 +7,6 @@
     <string name="text_play">Playing with text</string>
     <string name="email">Sending email</string>
     <string name="camera">Playing with camera</string>
+    <string name="passing_data">Passing data</string>
 
 </resources>
