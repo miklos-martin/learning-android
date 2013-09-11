@@ -1,7 +1,7 @@
 package miklos.martin.learningandroid;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +14,9 @@ public class MainActivity extends Activity {
     TextView display;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void onCreate ( Bundle savedInstanceState ) {
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_main );
 
         counter = 0;
         add = (Button) findViewById( R.id.bAdd );
@@ -25,25 +25,25 @@ public class MainActivity extends Activity {
 
         add.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick ( View view ) {
                 counter++;
                 display.setText( "Total: " + counter );
             }
-        });
+        } );
 
         sub.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick ( View view ) {
                 counter--;
                 display.setText( "Total: " + counter );
             }
-        });
+        } );
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu ( Menu menu ) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate( R.menu.main, menu );
         return true;
     }
 }

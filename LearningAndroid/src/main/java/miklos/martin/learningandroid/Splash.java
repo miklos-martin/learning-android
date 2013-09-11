@@ -10,15 +10,15 @@ import android.os.Bundle;
 public class Splash extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+    protected void onCreate ( Bundle savedInstanceState ) {
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.splash );
 
         Thread timer = new Thread() {
             @Override
-            public void run() {
+            public void run () {
                 try {
-                    sleep(2000);
+                    sleep( 2000 );
                 } catch ( InterruptedException e ) {
                     e.printStackTrace();
                 } finally {
@@ -32,7 +32,7 @@ public class Splash extends Activity {
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause () {
         super.onPause();
         finish();
     }

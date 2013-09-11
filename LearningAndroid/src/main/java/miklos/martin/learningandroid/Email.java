@@ -18,29 +18,29 @@ public class Email extends Activity implements View.OnClickListener {
     Button send;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate ( Bundle savedInstanceState ) {
+        super.onCreate( savedInstanceState );
         setContentView( R.layout.email );
 
         initMembers();
         send.setOnClickListener( this );
     }
 
-    private void initMembers() {
+    private void initMembers () {
         recipent = (EditText) findViewById( R.id.etRecipent );
         subject = (EditText) findViewById( R.id.etSubject );
         message = (EditText) findViewById( R.id.etMessage );
         send = (Button) findViewById( R.id.bSend );
     }
-    
-    private void convertTexts() {
+
+    private void convertTexts () {
         recipentString = recipent.getText().toString();
         subjectString = subject.getText().toString();
         messageString = message.getText().toString();
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick ( View view ) {
 
         convertTexts();
         String adresses[] = { recipentString };
