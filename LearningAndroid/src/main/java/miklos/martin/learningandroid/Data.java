@@ -39,17 +39,29 @@ public class Data extends Activity implements View.OnClickListener {
     @Override
     public void onClick ( View view ) {
 
+        String bread = sendText.getText().toString();
+        Bundle basket = new Bundle();
+        basket.putString( "bread", bread );
+        Intent intent = new Intent( Data.this, Opened.class );
+        intent.putExtras( basket );
+
         switch ( view.getId() ) {
             case R.id.bSA:
-                String bread = sendText.getText().toString();
-                Bundle basket = new Bundle();
-                basket.putString( "bread", bread );
-                Intent intent = new Intent( Data.this, Opened.class );
-                intent.putExtras( basket );
                 startActivity( intent );
                 break;
             case R.id.bSAFR:
+                startActivityForResult( intent, 0 );
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult ( int requestCode, int resultCode, Intent data ) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        if ( resultCode == RESULT_OK ) {
+            Bundle extras = data.getExtras();
+            display.setText( extras.getString( "answer" ) );
         }
     }
 }

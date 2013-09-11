@@ -1,6 +1,7 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
     RadioGroup answer;
     RadioButton what, ok, dont;
     Button returnButton;
-    String gotBread;
+    String gotBread, data;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -26,7 +27,7 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
 
         initialize();
         collectData();
-        question.setText( "What do you think about " + gotBread );
+        question.setText( "What do you think about " + gotBread + "?" );
     }
 
     private void initialize () {
@@ -46,19 +47,35 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
     @Override
     public void onClick ( View view ) {
 
+        Intent intent = getIntent();
+        Bundle answer = new Bundle();
+        answer.putString( "answer", data );
+        intent.putExtras( answer );
+
+        setResult( RESULT_OK, intent );
+        finish();
     }
 
     @Override
     public void onCheckedChanged ( RadioGroup radioGroup, int i ) {
 
+        if ( !returnButton.isEnabled() ) {
+            returnButton.setEnabled( true );
+        }
+
         switch ( i ) {
             case R.id.rbWhat:
+                data = what.getText().toString();
                 break;
             case R.id.rbOK:
+                data = ok.getText().toString();
                 break;
             case R.id.rbDont:
+                data = dont.getText().toString();
                 break;
         }
+
+        display.setText( data );
     }
 
     public void collectData () {

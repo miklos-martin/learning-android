@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="About what?"
             android:id="@+id/rbWhat"
-            android:checked="true"
+            android:checked="false"
             android:textSize="@dimen/default_font_size"/>
 
         <RadioButton
@@ -55,12 +55,13 @@
         android:text="Return"
         android:id="@+id/bReturn"
         android:layout_gravity="left|center_vertical"
-        android:textSize="@dimen/default_font_size"/>
+        android:textSize="@dimen/default_font_size"
+        android:enabled="false"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="Pick an option!"
         android:id="@+id/tvSent"
         android:layout_gravity="left|center_vertical"
         android:textSize="@dimen/default_font_size"
