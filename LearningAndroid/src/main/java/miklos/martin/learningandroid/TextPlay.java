@@ -1,8 +1,10 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
@@ -41,6 +43,11 @@ public class TextPlay extends Activity implements View.OnClickListener {
         passwordToggle = (ToggleButton) findViewById( R.id.tbResults );
         display = (TextView) findViewById( R.id.tvResults );
         checkCommand = (Button) findViewById( R.id.bResults );
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getBaseContext() );
+        boolean password = preferences.getBoolean( "passwordByDefault", false );
+        passwordToggle.setChecked( password );
+        onPasswordToggleClick();
 
         registerCommands();
     }
