@@ -45,15 +45,19 @@ public class Menu extends ListActivity {
     @Override
     public boolean onOptionsItemSelected ( MenuItem item ) {
 
+        Intent i;
+
         switch ( item.getItemId() ) {
             case R.id.action_about_us:
-                Intent i = new Intent( Menu.this, About.class );
+                i = new Intent( Menu.this, About.class );
                 startActivity( i );
                 break;
             case R.id.action_preferences:
+                i = new Intent( Menu.this, Preferences.class );
+                startActivity( i );
                 break;
             case R.id.action_exit:
-                break;
+                finish();
         }
 
         return false;
