@@ -8,5 +8,7 @@
     <string name="email">Sending email</string>
     <string name="camera">Playing with camera</string>
     <string name="passing_data">Passing data</string>
+    <string name="action_preferences">Preferences</string>
+    <string name="action_about_us">About us</string>
 
 </resources>

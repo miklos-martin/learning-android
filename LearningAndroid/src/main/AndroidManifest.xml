@@ -36,6 +36,17 @@
         </activity>
 
         <activity
+            android:name="miklos.martin.learningandroid.About"
+            android:label="@string/action_about_us"
+            android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="miklos.martin.learningandroid.About"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name="miklos.martin.learningandroid.MainActivity"
             android:label="@string/app_name">
         </activity>
