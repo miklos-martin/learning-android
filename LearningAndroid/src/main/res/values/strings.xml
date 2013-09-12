@@ -10,5 +10,8 @@
     <string name="passing_data">Passing data</string>
     <string name="action_preferences">Preferences</string>
     <string name="action_about_us">About us</string>
+    <string name="action_exit">Exit</string>
+    <string name="preference_name">Enter your name</string>
+    <string name="preference_password">Show password input by default in TextPlay</string>
 
 </resources>

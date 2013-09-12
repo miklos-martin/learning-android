@@ -52,6 +52,8 @@ public class Menu extends ListActivity {
                 break;
             case R.id.action_preferences:
                 break;
+            case R.id.action_exit:
+                break;
         }
 
         return false;
