@@ -27,7 +27,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About what?"
+            android:text="@string/what"
             android:id="@+id/rbWhat"
             android:checked="false"
             android:textSize="@dimen/default_font_size"/>
@@ -35,7 +35,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I think it's OK"
+            android:text="@string/ok"
             android:id="@+id/rbOK"
             android:checked="false"
             android:textSize="@dimen/default_font_size"/>
@@ -43,7 +43,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I don't think at all"
+            android:text="@string/dont"
             android:id="@+id/rbDont"
             android:checked="false"
             android:textSize="@dimen/default_font_size"/>

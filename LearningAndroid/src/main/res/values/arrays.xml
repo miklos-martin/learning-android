@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="list">
-        <item>Optioon 1</item>
-        <item>Optioon 2</item>
-        <item>Optioon 3</item>
+        <item>@string/what</item>
+        <item>@string/ok</item>
+        <item>@string/dont</item>
     </string-array>
 
     <string-array name="listValues">

@@ -13,5 +13,8 @@
     <string name="action_exit">Exit</string>
     <string name="preference_name">Enter your name</string>
     <string name="preference_password">Show password input by default in TextPlay</string>
+    <string name="what">About what?</string>
+    <string name="ok">I think it\'s OK</string>
+    <string name="dont">I don\'t think at all</string>
 
 </resources>
