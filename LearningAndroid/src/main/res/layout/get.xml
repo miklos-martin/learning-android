@@ -9,9 +9,17 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin">
 
     <TextView
+        android:id="@+id/tvGreet"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/label_font_size"
+        android:text="Hey!"/>
+
+    <TextView
         android:id="@+id/tvLabel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvGreet"
         android:textSize="@dimen/label_font_size"
         android:text="What do you think about ...?"/>
 

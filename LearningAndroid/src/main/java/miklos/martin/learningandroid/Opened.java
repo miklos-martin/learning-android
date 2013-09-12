@@ -2,7 +2,9 @@ package miklos.martin.learningandroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -19,6 +21,7 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
     RadioButton what, ok, dont;
     Button returnButton;
     String gotBread, data;
+    int preferredChoice;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -26,8 +29,11 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
         setContentView( R.layout.send );
 
         initialize();
-        collectData();
         question.setText( "What do you think about " + gotBread + "?" );
+        if ( preferredChoice > 0 ) {
+            RadioButton choose[] = { what, ok, dont };
+            choose[ preferredChoice-1 ].setChecked( true );
+        }
     }
 
     private void initialize () {
@@ -42,6 +48,16 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
 
         returnButton.setOnClickListener( this );
         answer.setOnCheckedChangeListener( this );
+
+        collectData();
+    }
+
+    public void collectData () {
+        Bundle gotBasket = getIntent().getExtras();
+        gotBread = gotBasket.getString( "bread" );
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getBaseContext() );
+        preferredChoice = Integer.parseInt( preferences.getString( "list", "0" ) );
     }
 
     @Override
@@ -76,10 +92,5 @@ public class Opened extends Activity implements View.OnClickListener, RadioGroup
         }
 
         display.setText( data );
-    }
-
-    public void collectData () {
-        Bundle gotBasket = getIntent().getExtras();
-        gotBread = gotBasket.getString( "bread" );
     }
 }

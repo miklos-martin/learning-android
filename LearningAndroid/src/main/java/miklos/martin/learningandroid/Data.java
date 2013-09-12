@@ -2,7 +2,9 @@ package miklos.martin.learningandroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +17,8 @@ public class Data extends Activity implements View.OnClickListener {
 
     EditText sendText;
     Button start, startForResult;
-    TextView display;
+    TextView greeting, display;
+    String name;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -23,10 +26,12 @@ public class Data extends Activity implements View.OnClickListener {
         setContentView( R.layout.get );
 
         initialize();
+        greeting.setText( "Hey " + name + "!" );
     }
 
     private void initialize () {
 
+        greeting = (TextView) findViewById( R.id.tvGreet );
         sendText = (EditText) findViewById( R.id.etSend );
         start = (Button) findViewById( R.id.bSA );
         startForResult = (Button) findViewById( R.id.bSAFR );
@@ -34,6 +39,14 @@ public class Data extends Activity implements View.OnClickListener {
 
         start.setOnClickListener( this );
         startForResult.setOnClickListener( this );
+
+        collectData();
+    }
+
+    private void collectData () {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getBaseContext() );
+        name = preferences.getString( "name", "Firstname" );
     }
 
     @Override
