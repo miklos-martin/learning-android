@@ -16,5 +16,6 @@
     <string name="what">About what?</string>
     <string name="ok">I think it\'s OK</string>
     <string name="dont">I don\'t think at all</string>
+    <string name="graphics">Graphics</string>
 
 </resources>

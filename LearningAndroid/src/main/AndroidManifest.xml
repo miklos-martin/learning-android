@@ -85,6 +85,11 @@
             android:label="@string/passing_data">
         </activity>
 
+        <activity
+            android:name="miklos.martin.learningandroid.Graphics"
+            android:label="@string/graphics">
+        </activity>
+
     </application>
 
 </manifest>
