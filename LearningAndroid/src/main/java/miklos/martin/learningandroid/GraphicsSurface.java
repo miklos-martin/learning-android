@@ -17,4 +17,18 @@ public class GraphicsSurface extends Activity {
         animatedSurfaceView = new AnimatedSurfaceView( this );
         setContentView( animatedSurfaceView );
     }
+
+    @Override
+    protected void onPause () {
+        super.onPause();
+
+        animatedSurfaceView.pause();
+    }
+
+    @Override
+    protected void onResume () {
+        super.onResume();
+
+        animatedSurfaceView.resume();
+    }
 }
