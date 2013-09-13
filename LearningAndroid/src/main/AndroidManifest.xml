@@ -90,6 +90,11 @@
             android:label="@string/graphics">
         </activity>
 
+        <activity
+            android:name="miklos.martin.learningandroid.GraphicsSurface"
+            android:label="@string/graphics_surface">
+        </activity>
+
     </application>
 
 </manifest>
