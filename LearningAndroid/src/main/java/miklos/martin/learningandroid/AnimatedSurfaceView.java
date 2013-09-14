@@ -16,16 +16,21 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
 
     SurfaceHolder holder;
     Thread animation = null;
-    boolean isRunning = true;
+    boolean isRunning = false, moving = false;
 
     Bitmap greenBall;
-    float posX = 0, posY = 0;
+    float
+        posX = 0, posY = 0, correctX, correctY, startX = 0, startY = 0, finishX = 0, finishY = 0,
+        changeX = 0, changeY = 0, animateX = 0, animateY = 0, scaleX = 0, scaleY = 0
+    ;
 
     public AnimatedSurfaceView ( Context context ) {
         super( context );
 
         holder = getHolder();
         greenBall = BitmapFactory.decodeResource( context.getResources(), R.drawable.greenball );
+        correctX = greenBall.getWidth()/2;
+        correctY = greenBall.getHeight()/2;
     }
 
     public void pause() {
@@ -62,7 +67,7 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
             Canvas canvas = holder.lockCanvas();
             canvas.drawColor( Color.BLUE );
 
-            canvas.drawBitmap( greenBall, posX, posY, null );
+            canvas.drawBitmap( greenBall, posX - correctX, posY - correctY, null );
 
             holder.unlockCanvasAndPost( canvas );
         }
@@ -74,6 +79,21 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
 
         posX = event.getX();
         posY = event.getY();
+
+        switch ( event.getAction() ) {
+            case MotionEvent.ACTION_DOWN:
+                moving = true;
+                startX = event.getX();
+                startY = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                moving = false;
+                finishX = event.getX();
+                finishY = event.getY();
+                changeX = finishX - startX;
+                changeY = finishY - startY;
+                break;
+        }
 
         return true;
     }
