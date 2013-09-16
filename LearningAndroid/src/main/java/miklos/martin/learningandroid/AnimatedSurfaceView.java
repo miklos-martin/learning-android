@@ -64,6 +64,12 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
                 continue;
             }
 
+            try {
+                Thread.sleep( 16 );
+            } catch ( InterruptedException e ) {
+                e.printStackTrace();
+            }
+
             Canvas canvas = holder.lockCanvas();
             canvas.drawColor( Color.BLUE );
 
@@ -72,7 +78,18 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
             }
 
             if ( finishX != 0 && finishY != 0 ) {
-                canvas.drawBitmap( greenBall, finishX - correctX - animateX, finishY - correctY - animateY, null );
+                float drawX = finishX - correctX - animateX;
+                float drawY = finishY - correctY - animateY;
+
+                if ( drawX <= 0 || drawX >= ( canvas.getWidth() - greenBall.getWidth() ) ) {
+                    scaleX = scaleX * -1;
+                }
+
+                if ( drawY  <= 0 || drawY >= ( canvas.getHeight() - greenBall.getHeight() ) ) {
+                    scaleY = scaleY * -1;
+                }
+
+                canvas.drawBitmap( greenBall, drawX, drawY, null );
             }
 
             animateX += scaleX;
