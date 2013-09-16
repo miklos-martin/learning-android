@@ -97,6 +97,11 @@
             android:label="@string/graphics_surface">
         </activity>
 
+        <activity
+            android:name="miklos.martin.learningandroid.SoundStuff"
+            android:label="@string/sound_stuff">
+        </activity>
+
     </application>
 
 </manifest>

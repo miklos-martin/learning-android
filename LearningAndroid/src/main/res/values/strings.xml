@@ -18,5 +18,6 @@
     <string name="dont">I don\'t think at all</string>
     <string name="graphics">Graphics</string>
     <string name="graphics_surface">Graphics surface</string>
+    <string name="sound_stuff">Sound stuff</string>
 
 </resources>
