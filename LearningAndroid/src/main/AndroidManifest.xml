@@ -1,107 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="miklos.martin.learningandroid"
-          android:versionCode="1"
-          android:versionName="1.0">
+    package="miklos.martin.learningandroid"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="9"
-        android:targetSdkVersion="10"/>
+        android:targetSdkVersion="10" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
-
+        android:theme="@style/AppTheme" >
         <activity
             android:name="miklos.martin.learningandroid.Splash"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Menu"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="miklos.martin.learningandroid.MENU"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="miklos.martin.learningandroid.MENU" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name="miklos.martin.learningandroid.About"
             android:label="@string/action_about_us"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
-                <action android:name="miklos.martin.learningandroid.About"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="miklos.martin.learningandroid.About" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Preferences"
-            android:label="@string/action_preferences">
+            android:label="@string/action_preferences" >
             <intent-filter>
-                <action android:name="miklos.martin.learningandroid.PREFERENCES"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="miklos.martin.learningandroid.PREFERENCES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.TextPlay"
-            android:label="@string/text_play">
+            android:label="@string/text_play" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Email"
-            android:label="@string/email">
+            android:label="@string/email" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Camera"
             android:label="@string/camera"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Data"
-            android:label="@string/passing_data">
+            android:label="@string/passing_data" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Opened"
-            android:label="@string/passing_data">
+            android:label="@string/passing_data" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.Graphics"
-            android:label="@string/graphics">
+            android:label="@string/graphics" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.GraphicsSurface"
-            android:label="@string/graphics_surface">
+            android:label="@string/graphics_surface" >
         </activity>
-
         <activity
             android:name="miklos.martin.learningandroid.SoundStuff"
-            android:label="@string/sound_stuff">
+            android:label="@string/sound_stuff" >
         </activity>
-
+        <activity
+            android:name="miklos.martin.learningandroid.Slider"
+            android:label="@string/title_activity_slider" >
+        </activity>
     </application>
 
 </manifest>
