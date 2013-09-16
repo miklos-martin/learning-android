@@ -19,6 +19,6 @@
     <string name="graphics">Graphics</string>
     <string name="graphics_surface">Graphics surface</string>
     <string name="sound_stuff">Sound stuff</string>
-    <string name="title_activity_slider">\@string/slider</string>
+    <string name="slider">Slider</string>
 
 </resources>
