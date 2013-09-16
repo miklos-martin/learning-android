@@ -11,6 +11,8 @@ import android.graphics.Typeface;
 import android.text.Layout;
 import android.view.View;
 
+import java.util.Random;
+
 /**
  * Animated view
  */
@@ -19,12 +21,14 @@ public class AnimatedView extends View {
     Bitmap greenBall;
     int changingY;
     Typeface font;
+    int changingX;
 
     public AnimatedView ( Context context ) {
         super( context );
 
         greenBall = BitmapFactory.decodeResource( getResources(), R.drawable.greenball );
         changingY = 0;
+        changingX = 50;
         font = Typeface.createFromAsset( context.getAssets(), "fonts-japanese-gothic.ttf" );
     }
 
@@ -36,13 +40,13 @@ public class AnimatedView extends View {
 
         Paint text = new Paint();
         text.setARGB( 50, 128, 128, 128 );
-        text.setTextAlign( Paint.Align.CENTER );
-        text.setTextSize( 50 );
+        text.setTextAlign( Paint.Align.LEFT );
+        text.setTextSize( 40 );
         text.setFakeBoldText( true );
 
-        canvas.drawText( "Hey, firstname!", 20, 100, text );
+        canvas.drawText( "Hey, firstname!", 20, 80, text );
 
-        canvas.drawBitmap( greenBall, ( canvas.getWidth() / 2 ) - ( greenBall.getWidth() / 2 ), changingY, null );
+        canvas.drawBitmap( greenBall, changingX, changingY, null );
 
         if ( changingY < canvas.getHeight() ) {
             changingY += 10;
@@ -50,8 +54,11 @@ public class AnimatedView extends View {
             changingY = 0;
         }
 
+        Random random = new Random();
+        changingX += random.nextInt( 10 ) * ( random.nextBoolean() ? 1 : -1 );
+
         Rect middleRect = new Rect();
-        middleRect.set( 0, 400, canvas.getWidth(), 550 );
+        middleRect.set( 0, 150, canvas.getWidth(), 300 );
 
         Paint blue =  new Paint();
         blue.setColor( Color.BLUE );

@@ -1,7 +1,9 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PowerManager;
 
 /**
  * For some graphics
@@ -9,12 +11,26 @@ import android.os.Bundle;
 public class Graphics extends Activity {
 
     AnimatedView animatedView;
+    PowerManager.WakeLock wakeLock;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
+
+        PowerManager powerManager = (PowerManager) getSystemService( Context.POWER_SERVICE );
+        wakeLock = powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, "graphics-activity" );
+
         super.onCreate( savedInstanceState );
+
+        wakeLock.acquire();
 
         animatedView = new AnimatedView( this );
         setContentView( animatedView );
+    }
+
+    @Override
+    protected void onPause () {
+        super.onPause();
+
+        wakeLock.release();
     }
 }
