@@ -12,6 +12,8 @@ public class Tabs extends Activity implements View.OnClickListener {
     TabHost tabHost;
     Button start, stop, addTab;
     int tabsCounter = 0;
+    TextView stopWatchDisplay;
+    long startTime = 0, stopTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,15 @@ public class Tabs extends Activity implements View.OnClickListener {
 
         tabHost.addTab( tabSpec );
 
+        addTab = (Button) findViewById( R.id.bAddTab );
+        addTab.setOnClickListener( this );
+
         start = (Button) findViewById( R.id.bStartWatch );
         stop = (Button) findViewById( R.id.bStopWatch );
-        addTab = (Button) findViewById( R.id.bAddTab );
+        stopWatchDisplay = (TextView) findViewById( R.id.tvWatchDisplay );
 
-        addTab.setOnClickListener( this );
+        start.setOnClickListener( this );
+        stop.setOnClickListener( this );
     }
 
     @Override
@@ -55,8 +61,15 @@ public class Tabs extends Activity implements View.OnClickListener {
 
         switch ( view.getId() ) {
             case R.id.bStartWatch:
+                startTime = System.currentTimeMillis();
                 break;
             case R.id.bStopWatch:
+                if ( startTime != 0 ) {
+                    stopTime = System.currentTimeMillis();
+                    long ellapsedTime = stopTime - startTime;
+
+                    stopWatchDisplay.setText( Long.toString( ellapsedTime ) );
+                }
                 break;
             case R.id.bAddTab:
                 tabsCounter++;
@@ -77,7 +90,5 @@ public class Tabs extends Activity implements View.OnClickListener {
 
                 break;
         }
-
-
     }
 }
