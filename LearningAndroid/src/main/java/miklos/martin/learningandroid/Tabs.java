@@ -2,11 +2,16 @@ package miklos.martin.learningandroid;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TextView;
 
-public class Tabs extends Activity {
+public class Tabs extends Activity implements View.OnClickListener {
 
     TabHost tabHost;
+    Button start, stop, addTab;
+    int tabsCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +42,42 @@ public class Tabs extends Activity {
         tabSpec.setIndicator( "Add a tab" );
 
         tabHost.addTab( tabSpec );
+
+        start = (Button) findViewById( R.id.bStartWatch );
+        stop = (Button) findViewById( R.id.bStopWatch );
+        addTab = (Button) findViewById( R.id.bAddTab );
+
+        addTab.setOnClickListener( this );
+    }
+
+    @Override
+    public void onClick ( View view ) {
+
+        switch ( view.getId() ) {
+            case R.id.bStartWatch:
+                break;
+            case R.id.bStopWatch:
+                break;
+            case R.id.bAddTab:
+                tabsCounter++;
+                TabHost.TabSpec tabSpec = tabHost.newTabSpec( "newTab" + tabsCounter );
+                tabSpec.setContent( new TabHost.TabContentFactory() {
+                    @Override
+                    public View createTabContent ( String s ) {
+
+                        TextView textView = new TextView( Tabs.this );
+                        textView.setText( "Hey, You've created a new tab!" );
+
+                        return textView;
+                    }
+                } );
+
+                tabSpec.setIndicator( "New tab " + tabsCounter );
+                tabHost.addTab( tabSpec );
+
+                break;
+        }
+
+
     }
 }
