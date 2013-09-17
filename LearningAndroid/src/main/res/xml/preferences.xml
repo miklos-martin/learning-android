@@ -6,6 +6,11 @@
         android:key="name"
         android:summary="@string/preference_name" />
 
+    <EditTextPreference
+        android:title="Homepage"
+        android:key="homepage"
+        android:summary="@string/preference_homepage" />
+
     <CheckBoxPreference
         android:title="Password input"
         android:defaultValue="false"

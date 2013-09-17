@@ -28,5 +28,6 @@
     <string name="refresh">Refresh</string>
     <string name="clear_history">Clear history</string>
     <string name="browser"/>
+    <string name="preference_homepage">Enter homepage</string>
 
 </resources>

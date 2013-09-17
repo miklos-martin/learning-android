@@ -1,7 +1,9 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -17,6 +19,7 @@ public class Browser extends Activity implements View.OnClickListener {
     Button go;
     ImageButton back, forward, refresh, clear;
     WebView browser;
+    String homepage;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -25,7 +28,7 @@ public class Browser extends Activity implements View.OnClickListener {
         setContentView( R.layout.browser );
         initialize();
 
-        browser.loadUrl( "http://google.com" );
+        browser.loadUrl( homepage );
     }
 
     private void initialize () {
@@ -49,6 +52,14 @@ public class Browser extends Activity implements View.OnClickListener {
         browser.getSettings().setUseWideViewPort( true );
 
         browser.setWebViewClient( new BrowserClient() );
+
+        collectData();
+    }
+
+    private void collectData () {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getBaseContext() );
+        homepage = preferences.getString( "homepage", "http://google.com" );
     }
 
     @Override
