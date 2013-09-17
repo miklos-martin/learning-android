@@ -40,16 +40,14 @@
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_media_previous"
             android:id="@+id/bBack"
-            android:layout_weight="1"
-            android:clickable="false"/>
+            android:layout_weight="1"/>
 
         <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_media_next"
             android:id="@+id/bForward"
-            android:layout_weight="1"
-            android:clickable="false"/>
+            android:layout_weight="1"/>
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -63,8 +61,7 @@
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_notification_clear_all"
             android:id="@+id/bClearHistory"
-            android:layout_weight="1"
-            android:clickable="false"/>
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <WebView

@@ -43,6 +43,7 @@ public class Browser extends Activity implements View.OnClickListener {
         forward.setOnClickListener( this );
         refresh.setOnClickListener( this );
         clear.setOnClickListener( this );
+        browser.setWebViewClient( new BrowserClient() );
     }
 
     @Override
@@ -50,14 +51,23 @@ public class Browser extends Activity implements View.OnClickListener {
 
         switch ( view.getId() ) {
             case R.id.bGo:
+                browser.loadUrl( url.getText().toString() );
                 break;
             case R.id.bBack:
+                if ( browser.canGoBack() ) {
+                    browser.goBack();
+                }
                 break;
             case R.id.bForward:
+                if ( browser.canGoForward() ) {
+                    browser.goForward();
+                }
                 break;
             case R.id.bRefresh:
+                browser.reload();
                 break;
             case R.id.bClearHistory:
+                browser.clearHistory();
                 break;
         }
     }
