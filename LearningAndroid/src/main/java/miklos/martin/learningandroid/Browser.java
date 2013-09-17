@@ -45,6 +45,9 @@ public class Browser extends Activity implements View.OnClickListener {
         clear.setOnClickListener( this );
 
         browser.getSettings().setJavaScriptEnabled( true );
+        browser.getSettings().setLoadWithOverviewMode( true );
+        browser.getSettings().setUseWideViewPort( true );
+
         browser.setWebViewClient( new BrowserClient() );
     }
 
