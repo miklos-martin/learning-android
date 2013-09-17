@@ -20,5 +20,8 @@
     <string name="graphics_surface">Graphics surface</string>
     <string name="sound_stuff">Sound stuff</string>
     <string name="slider">Slider</string>
+    <string name="tabs">Tabs</string>
+    <string name="title_activity_tabs">Tabs</string>
+    <string name="add_tab">Add tab</string>
 
 </resources>

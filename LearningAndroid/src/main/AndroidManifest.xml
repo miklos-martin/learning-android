@@ -93,6 +93,10 @@
             android:name="miklos.martin.learningandroid.Slider"
             android:label="@string/slider" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.Tabs"
+            android:label="@string/tabs" >
+        </activity>
     </application>
 
 </manifest>
