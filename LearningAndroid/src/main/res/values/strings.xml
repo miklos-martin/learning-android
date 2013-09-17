@@ -23,5 +23,10 @@
     <string name="tabs">Tabs</string>
     <string name="title_activity_tabs">Tabs</string>
     <string name="add_tab">Add tab</string>
+    <string name="go_back">Go back</string>
+    <string name="go_forward">Go forward</string>
+    <string name="refresh">Refresh</string>
+    <string name="clear_history">Clear history</string>
+    <string name="browser"/>
 
 </resources>

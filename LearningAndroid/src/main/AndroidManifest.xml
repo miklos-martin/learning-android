@@ -9,6 +9,7 @@
         android:targetSdkVersion="10" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -96,6 +97,10 @@
         <activity
             android:name="miklos.martin.learningandroid.Tabs"
             android:label="@string/tabs" >
+        </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.Browser"
+            android:label="@string/browser" >
         </activity>
     </application>
 
