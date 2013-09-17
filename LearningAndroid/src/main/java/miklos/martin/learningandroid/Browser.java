@@ -1,10 +1,12 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +70,8 @@ public class Browser extends Activity implements View.OnClickListener {
         switch ( view.getId() ) {
             case R.id.bGo:
                 browser.loadUrl( url.getText().toString() );
+                InputMethodManager imm = (InputMethodManager) getSystemService( Context.INPUT_METHOD_SERVICE );
+                imm.hideSoftInputFromWindow( url.getWindowToken(), 0 );
                 break;
             case R.id.bBack:
                 if ( browser.canGoBack() ) {
