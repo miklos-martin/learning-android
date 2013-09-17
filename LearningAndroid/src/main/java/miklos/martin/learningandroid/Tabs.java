@@ -66,9 +66,18 @@ public class Tabs extends Activity implements View.OnClickListener {
             case R.id.bStopWatch:
                 if ( startTime != 0 ) {
                     stopTime = System.currentTimeMillis();
-                    long ellapsedTime = stopTime - startTime;
+                    int millis = (int) (stopTime - startTime);
 
-                    stopWatchDisplay.setText( Long.toString( ellapsedTime ) );
+                    // reset times
+                    startTime = stopTime = 0;
+
+                    // formatting time
+                    int seconds = millis / 1000;
+                    int minutes = seconds / 60;
+                    millis = millis % 1000;
+                    seconds = seconds % 60;
+
+                    stopWatchDisplay.setText( String.format( "%d:%02d.%03d", minutes, seconds, millis ) );
                 }
                 break;
             case R.id.bAddTab:
