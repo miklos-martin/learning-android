@@ -34,6 +34,16 @@ public class InternalData extends AbstractDataManipulation {
 
         switch ( view.getId() ) {
             case R.id.bSave:
+                String data = sharedData.getText().toString();
+                try {
+                    fos = openFileOutput( filename, Context.MODE_PRIVATE );
+                    fos.write( data.getBytes() );
+                    fos.close();
+                } catch ( FileNotFoundException e ) {
+                    e.printStackTrace();
+                } catch ( IOException e ) {
+                    e.printStackTrace();
+                }
                 break;
             case R.id.bLoad:
                 break;
