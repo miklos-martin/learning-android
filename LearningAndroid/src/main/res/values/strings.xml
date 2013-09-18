@@ -27,7 +27,8 @@
     <string name="go_forward">Go forward</string>
     <string name="refresh">Refresh</string>
     <string name="clear_history">Clear history</string>
-    <string name="browser"/>
+    <string name="browser">Awesome browser</string>
     <string name="preference_homepage">Enter homepage</string>
+    <string name="flipper">ViewFlipper example</string>
 
 </resources>

@@ -102,6 +102,10 @@
             android:name="miklos.martin.learningandroid.Browser"
             android:label="@string/browser" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.Flipper"
+            android:label="@string/flipper" >
+        </activity>
     </application>
 
 </manifest>
