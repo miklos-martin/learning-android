@@ -31,5 +31,6 @@
     <string name="preference_homepage">Enter homepage</string>
     <string name="flipper">ViewFlipper example</string>
     <string name="sharedpreferences">Shared preferences example</string>
+    <string name="internaldata">Internal data example</string>
 
 </resources>

@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Created by miki on 9/18/13.
+ * Internal data manipulation example
  */
 public class InternalData extends AbstractDataManipulation {
 

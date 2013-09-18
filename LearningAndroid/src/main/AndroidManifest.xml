@@ -110,6 +110,10 @@
             android:name="miklos.martin.learningandroid.SharedPrefs"
             android:label="@string/sharedpreferences" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.InternalData"
+            android:label="@string/internaldata" >
+        </activity>
     </application>
 
 </manifest>
