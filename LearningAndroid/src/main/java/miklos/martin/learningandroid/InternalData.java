@@ -1,5 +1,6 @@
 package miklos.martin.learningandroid;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
@@ -57,8 +58,14 @@ public class InternalData extends AbstractDataManipulation {
 
     private class LoadSomeStuff extends AsyncTask<String, Integer, String> {
 
+        ProgressDialog dialog;
+
         @Override
         protected void onPreExecute () {
+            dialog = new ProgressDialog( InternalData.this );
+            dialog.setProgressStyle( ProgressDialog.STYLE_HORIZONTAL );
+            dialog.setMax( 100 );
+            dialog.show();
         }
 
         @Override
@@ -66,12 +73,25 @@ public class InternalData extends AbstractDataManipulation {
 
             String message = "NOthing in here yet!";
             FileInputStream fis = null;
+
+            for ( int i = 0; i < 20; i++ ) {
+                publishProgress( 5 );
+
+                try {
+                    Thread.sleep( 100 );
+                } catch ( InterruptedException e ) {
+                    e.printStackTrace();
+                }
+            }
+
+            dialog.dismiss();
+
             try {
                 fis = openFileInput( filename );
                 byte[] bytes = new byte[fis.available()];
 
-                while ( fis.read(bytes) != -1 ) {
-                    message = new String(bytes);
+                while ( fis.read( bytes ) != -1 ) {
+                    message = new String( bytes );
                 }
             } catch ( FileNotFoundException e ) {
                 e.printStackTrace();
@@ -90,11 +110,11 @@ public class InternalData extends AbstractDataManipulation {
         }
 
         @Override
-        protected void onProgressUpdate( Integer... progress ) {
-
+        protected void onProgressUpdate ( Integer... progress ) {
+            dialog.incrementProgressBy( progress[0] );
         }
 
-        protected void onPostExecute( String result ) {
+        protected void onPostExecute ( String result ) {
             dataResults.setText( result );
         }
     }
