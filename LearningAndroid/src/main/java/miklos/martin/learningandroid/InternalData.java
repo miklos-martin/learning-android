@@ -46,13 +46,11 @@ public class InternalData extends AbstractDataManipulation {
                 } catch ( IOException e ) {
                     e.printStackTrace();
                 }
+
+                dataResults.setText( "Done" );
                 break;
             case R.id.bLoad:
-                String message = "Nothing in here yet!";
-
                 new LoadSomeStuff().execute( filename );
-
-                dataResults.setText( message );
                 break;
         }
     }
@@ -60,9 +58,13 @@ public class InternalData extends AbstractDataManipulation {
     private class LoadSomeStuff extends AsyncTask<String, Integer, String> {
 
         @Override
+        protected void onPreExecute () {
+        }
+
+        @Override
         protected String doInBackground ( String... params ) {
 
-            String message = null;
+            String message = "NOthing in here yet!";
             FileInputStream fis = null;
             try {
                 fis = openFileInput( filename );
@@ -85,6 +87,15 @@ public class InternalData extends AbstractDataManipulation {
             }
 
             return null;
+        }
+
+        @Override
+        protected void onProgressUpdate( Integer... progress ) {
+
+        }
+
+        protected void onPostExecute( String result ) {
+            dataResults.setText( result );
         }
     }
 }
