@@ -106,6 +106,10 @@
             android:name="miklos.martin.learningandroid.Flipper"
             android:label="@string/flipper" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.SharedPrefs"
+            android:label="@string/sharedpreferences" >
+        </activity>
     </application>
 
 </manifest>

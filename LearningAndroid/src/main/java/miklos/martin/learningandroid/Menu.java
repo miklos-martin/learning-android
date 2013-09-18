@@ -16,7 +16,7 @@ public class Menu extends ListActivity {
     String classes[] = {
             "MainActivity", "TextPlay", "Email", "Camera", "Data",
             "Graphics", "GraphicsSurface", "SoundStuff",
-            "Slider", "Tabs", "Browser", "Flipper"
+            "Slider", "Tabs", "Browser", "Flipper", "SharedPrefs"
     };
 
     @Override
