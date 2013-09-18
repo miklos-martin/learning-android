@@ -3,6 +3,7 @@ package miklos.martin.learningandroid;
 import android.content.Context;
 import android.view.View;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -46,6 +47,28 @@ public class InternalData extends AbstractDataManipulation {
                 }
                 break;
             case R.id.bLoad:
+                String message = "Nothing in here yet!";
+                FileInputStream fis = null;
+                try {
+                    fis = openFileInput( filename );
+                    byte[] bytes = new byte[fis.available()];
+
+                    while ( fis.read(bytes) != -1 ) {
+                        message = new String(bytes);
+                    }
+                } catch ( FileNotFoundException e ) {
+                    e.printStackTrace();
+                } catch ( IOException e ) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        fis.close();
+                    } catch ( IOException e ) {
+                        e.printStackTrace();
+                    }
+                }
+
+                dataResults.setText( message );
                 break;
         }
     }
