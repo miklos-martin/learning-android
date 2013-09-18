@@ -1,6 +1,7 @@
 package miklos.martin.learningandroid;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.view.View;
 
 import java.io.FileInputStream;
@@ -48,28 +49,42 @@ public class InternalData extends AbstractDataManipulation {
                 break;
             case R.id.bLoad:
                 String message = "Nothing in here yet!";
-                FileInputStream fis = null;
-                try {
-                    fis = openFileInput( filename );
-                    byte[] bytes = new byte[fis.available()];
 
-                    while ( fis.read(bytes) != -1 ) {
-                        message = new String(bytes);
-                    }
-                } catch ( FileNotFoundException e ) {
-                    e.printStackTrace();
-                } catch ( IOException e ) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        fis.close();
-                    } catch ( IOException e ) {
-                        e.printStackTrace();
-                    }
-                }
+                new LoadSomeStuff().execute( filename );
 
                 dataResults.setText( message );
                 break;
+        }
+    }
+
+    private class LoadSomeStuff extends AsyncTask<String, Integer, String> {
+
+        @Override
+        protected String doInBackground ( String... params ) {
+
+            String message = null;
+            FileInputStream fis = null;
+            try {
+                fis = openFileInput( filename );
+                byte[] bytes = new byte[fis.available()];
+
+                while ( fis.read(bytes) != -1 ) {
+                    message = new String(bytes);
+                }
+            } catch ( FileNotFoundException e ) {
+                e.printStackTrace();
+            } catch ( IOException e ) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    fis.close();
+                    return message;
+                } catch ( IOException e ) {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
         }
     }
 }
