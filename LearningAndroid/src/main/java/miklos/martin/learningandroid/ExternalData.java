@@ -1,6 +1,8 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -114,6 +116,11 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
                 break;
             case R.id.bSaveAs:
                 String filename = save.getText().toString();
+
+                if ( !filename.endsWith( ".png" ) ) {
+                    filename += ".png";
+                }
+
                 file = new File( path, filename );
                 checkState();
 
@@ -134,6 +141,19 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
 
                         Toast toast = Toast.makeText( ExternalData.this, "File has been saved", Toast.LENGTH_LONG );
                         toast.show();
+
+                        MediaScannerConnection.scanFile(
+                                ExternalData.this,
+                                new String[] { file.toString() },
+                                null,
+                                new MediaScannerConnection.OnScanCompletedListener() {
+                                    @Override
+                                    public void onScanCompleted ( String s, Uri uri ) {
+                                        Toast toast = Toast.makeText( ExternalData.this, "Scan completed", Toast.LENGTH_LONG );
+                                        toast.show();
+                                    }
+                                }
+                        );
 
                     } catch ( FileNotFoundException e ) {
                         e.printStackTrace();
