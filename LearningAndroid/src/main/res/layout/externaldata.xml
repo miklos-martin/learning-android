@@ -58,4 +58,38 @@
         android:id="@+id/spinner"
         android:layout_gravity="left|center_vertical"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save as ..."
+        android:id="@+id/textView"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginTop="-6dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etSaveAs"
+        android:layout_gravity="left|center_vertical"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="left|center_vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:id="@+id/bConfirm"
+            android:layout_gravity="center_horizontal|top"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/bSaveAs"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
 </LinearLayout>

@@ -6,6 +6,8 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -15,14 +17,16 @@ import java.io.File;
 /**
  * External data manipulation
  */
-public class ExternalData extends Activity implements AdapterView.OnItemSelectedListener {
+public class ExternalData extends Activity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private TextView canRead, canWrite;
     private String state;
     private boolean readable, writeable;
     private Spinner spinner;
-    String[] paths = { "Music", "Pictures", "Downloads" };
-    File path = null;
+    private String[] paths = { "Music", "Pictures", "Downloads" };
+    private File path = null;
+    private Button confirm, save;
+    private EditText filename;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -41,6 +45,13 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
         ArrayAdapter<String> adapter = new ArrayAdapter<String>( ExternalData.this, android.R.layout.simple_spinner_item, paths );
         spinner.setAdapter( adapter );
         spinner.setOnItemSelectedListener( this );
+
+        filename = (EditText) findViewById( R.id.etSaveAs );
+        confirm = (Button) findViewById( R.id.bConfirm );
+        save = (Button) findViewById( R.id.bSaveAs );
+
+        confirm.setOnClickListener( this );
+        save.setOnClickListener( this );
     }
 
     private void checkState () {
@@ -85,5 +96,17 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
     @Override
     public void onNothingSelected ( AdapterView<?> adapterView ) {
 
+    }
+
+    @Override
+    public void onClick ( View view ) {
+
+        switch ( view.getId() ) {
+            case R.id.bConfirm:
+                save.setVisibility( View.VISIBLE );
+                break;
+            case R.id.bSaveAs:
+                break;
+        }
     }
 }
