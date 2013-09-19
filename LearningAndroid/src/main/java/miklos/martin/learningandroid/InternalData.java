@@ -71,7 +71,7 @@ public class InternalData extends AbstractDataManipulation {
         @Override
         protected String doInBackground ( String... params ) {
 
-            String message = "NOthing in here yet!";
+            String message = "Nothing in here yet!";
             FileInputStream fis = null;
 
             for ( int i = 0; i < 20; i++ ) {
@@ -88,10 +88,12 @@ public class InternalData extends AbstractDataManipulation {
 
             try {
                 fis = openFileInput( filename );
-                byte[] bytes = new byte[fis.available()];
+                if ( fis.available() > 0 ) {
+                    byte[] bytes = new byte[fis.available()];
 
-                while ( fis.read( bytes ) != -1 ) {
-                    message = new String( bytes );
+                    while ( fis.read( bytes ) != -1 ) {
+                        message = new String( bytes );
+                    }
                 }
             } catch ( FileNotFoundException e ) {
                 e.printStackTrace();
