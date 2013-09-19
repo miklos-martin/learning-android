@@ -11,8 +11,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * External data manipulation
@@ -25,6 +31,7 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
     private Spinner spinner;
     private String[] paths = { "Music", "Pictures", "Downloads" };
     private File path = null;
+    private File file = null;
     private Button confirm, save;
     private EditText filename;
 
@@ -106,6 +113,35 @@ public class ExternalData extends Activity implements AdapterView.OnItemSelected
                 save.setVisibility( View.VISIBLE );
                 break;
             case R.id.bSaveAs:
+                String filename = save.getText().toString();
+                file = new File( path, filename );
+                checkState();
+
+                if ( readable && writeable ) {
+
+                    path.mkdirs();
+
+                    try {
+                        InputStream is = getResources().openRawResource( R.drawable.greenball );
+                        OutputStream os = new FileOutputStream( file );
+                        byte[] data = new byte[ is.available() ];
+
+                        is.read( data );
+                        os.write( data );
+
+                        is.close();
+                        os.close();
+
+                        Toast toast = Toast.makeText( ExternalData.this, "File has been saved", Toast.LENGTH_LONG );
+                        toast.show();
+
+                    } catch ( FileNotFoundException e ) {
+                        e.printStackTrace();
+                    } catch ( IOException e ) {
+                        e.printStackTrace();
+                    }
+                }
+
                 break;
         }
     }
