@@ -32,5 +32,6 @@
     <string name="flipper">ViewFlipper example</string>
     <string name="sharedpreferences">Shared preferences example</string>
     <string name="internaldata">Internal data example</string>
+    <string name="externaldata">External data example</string>
 
 </resources>

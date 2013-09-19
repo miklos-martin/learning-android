@@ -114,6 +114,10 @@
             android:name="miklos.martin.learningandroid.InternalData"
             android:label="@string/internaldata" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.ExternalData"
+            android:label="@string/externaldata" >
+        </activity>
     </application>
 
 </manifest>
