@@ -119,6 +119,10 @@
             android:name="miklos.martin.learningandroid.ExternalData"
             android:label="@string/externaldata" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.SQLiteExample"
+            android:label="@string/sqlite" >
+        </activity>
     </application>
 
 </manifest>

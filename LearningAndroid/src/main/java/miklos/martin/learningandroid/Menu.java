@@ -17,7 +17,7 @@ public class Menu extends ListActivity {
             "MainActivity", "TextPlay", "Email", "Camera", "Data",
             "Graphics", "GraphicsSurface", "SoundStuff",
             "Slider", "Tabs", "Browser", "Flipper",
-            "SharedPrefs", "InternalData", "ExternalData"
+            "SharedPrefs", "InternalData", "ExternalData", "SQLiteExample"
     };
 
     @Override
