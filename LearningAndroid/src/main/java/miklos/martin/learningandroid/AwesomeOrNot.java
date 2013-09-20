@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.SQLException;
+
 /**
  * Model class for the awesome table
  */
@@ -26,7 +28,7 @@ public class AwesomeOrNot {
         context = c;
     }
 
-    public AwesomeOrNot open() {
+    public AwesomeOrNot open() throws SQLException{
         helper = new DbHelper( context );
         database = helper.getWritableDatabase();
 

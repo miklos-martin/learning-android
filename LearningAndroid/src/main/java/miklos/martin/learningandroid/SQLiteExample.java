@@ -1,10 +1,13 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * SQLite example
@@ -39,18 +42,36 @@ public class SQLiteExample extends Activity implements View.OnClickListener {
         switch ( view.getId() ) {
             case R.id.bUpdate:
 
-                String personName = name.getText().toString();
-                int personAwesomeness = Integer.parseInt( awesomeness.getText().toString() );
+                boolean success = true;
 
-                AwesomeOrNot entry = new AwesomeOrNot( SQLiteExample.this );
-                entry.open();
+                try {
+                    String personName = name.getText().toString();
+                    int personAwesomeness = Integer.parseInt( awesomeness.getText().toString() );
 
-                entry.createNew( personName, personAwesomeness );
+                    AwesomeOrNot entry = new AwesomeOrNot( SQLiteExample.this );
+                    entry.open();
 
-                entry.close();
+                    entry.createNew( personName, personAwesomeness );
+
+                    entry.close();
+                } catch ( Exception e ) {
+                    success = false;
+                }
+
+                if ( success ) {
+                    Dialog dialog = new Dialog( this );
+                    dialog.setTitle( "Saved data!" );
+                    TextView text = new TextView( this );
+                    text.setText( "Successfully saved that nonsense you wrote." );
+
+                    dialog.setContentView( text );
+                    dialog.show();
+                }
 
                 break;
             case R.id.bLoad:
+                Intent i = new Intent( SQLiteExample.this, SQLView.class );
+                startActivity( i );
                 break;
         }
     }

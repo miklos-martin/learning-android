@@ -123,6 +123,10 @@
             android:name="miklos.martin.learningandroid.SQLiteExample"
             android:label="@string/sqlite" >
         </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.SQLView"
+            android:label="@string/sqlite" >
+        </activity>
     </application>
 
 </manifest>
