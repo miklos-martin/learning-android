@@ -38,6 +38,17 @@ public class SQLiteExample extends Activity implements View.OnClickListener {
 
         switch ( view.getId() ) {
             case R.id.bUpdate:
+
+                String personName = name.getText().toString();
+                int personAwesomeness = Integer.parseInt( awesomeness.getText().toString() );
+
+                AwesomeOrNot entry = new AwesomeOrNot( SQLiteExample.this );
+                entry.open();
+
+                entry.createNew( personName, personAwesomeness );
+
+                entry.close();
+
                 break;
             case R.id.bLoad:
                 break;
