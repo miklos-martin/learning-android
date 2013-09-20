@@ -59,7 +59,7 @@ public class AwesomeOrNot {
 
             sqLiteDatabase.execSQL(
                 "CREATE TABLE " + DATABASE_TABLE + " (" +
-                    ID + " INTEGER PRIMARY KEY AUTO INCREMENT, " +
+                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     NAME + "  TEXT NOT NULL, " +
                     AWESOMENESS + "  INTEGER NOT NULL" +
                 ");"

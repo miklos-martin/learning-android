@@ -55,6 +55,7 @@ public class SQLiteExample extends Activity implements View.OnClickListener {
 
                     entry.close();
                 } catch ( Exception e ) {
+                    e.printStackTrace();
                     success = false;
                 }
 
