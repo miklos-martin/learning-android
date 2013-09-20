@@ -7,6 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import miklos.martin.learningandroid.model.AwesomePerson;
 
 /**
  * Model class for the awesome table
@@ -49,18 +56,18 @@ public class AwesomeOrNot {
         database.insert( DATABASE_TABLE, null, parameters );
     }
 
-    public String getData () {
+    public ArrayList<AwesomePerson> getData () {
 
         String[] columns = new String[] { ID, NAME, AWESOMENESS };
         Cursor cursor = database.query( DATABASE_TABLE, columns, null, null, null, null, null );
-        String result = "";
+        ArrayList<AwesomePerson> result = new ArrayList<AwesomePerson>();
 
         int iId = cursor.getColumnIndex( ID );
         int iName = cursor.getColumnIndex( NAME );
         int iAwesomeness = cursor.getColumnIndex( AWESOMENESS );
 
         for ( cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext() ) {
-            result += cursor.getString( iId ) + " " + cursor.getString( iName ) + " " + cursor.getString( iAwesomeness ) + "\n";
+            result.add( new AwesomePerson( cursor.getInt( iId ), cursor.getString( iName ), cursor.getInt( iAwesomeness ) ) );
         }
 
         return result;
