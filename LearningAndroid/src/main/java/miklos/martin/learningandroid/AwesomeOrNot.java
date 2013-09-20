@@ -2,6 +2,7 @@ package miklos.martin.learningandroid;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -46,6 +47,23 @@ public class AwesomeOrNot {
         parameters.put( AWESOMENESS, awesomeness );
 
         database.insert( DATABASE_TABLE, null, parameters );
+    }
+
+    public String getData () {
+
+        String[] columns = new String[] { ID, NAME, AWESOMENESS };
+        Cursor cursor = database.query( DATABASE_TABLE, columns, null, null, null, null, null );
+        String result = "";
+
+        int iId = cursor.getColumnIndex( ID );
+        int iName = cursor.getColumnIndex( NAME );
+        int iAwesomeness = cursor.getColumnIndex( AWESOMENESS );
+
+        for ( cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext() ) {
+            result += cursor.getString( iId ) + " " + cursor.getString( iName ) + " " + cursor.getString( iAwesomeness ) + "\n";
+        }
+
+        return result;
     }
 
     private static class DbHelper extends SQLiteOpenHelper {

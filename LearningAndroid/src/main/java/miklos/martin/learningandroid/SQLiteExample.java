@@ -61,7 +61,7 @@ public class SQLiteExample extends Activity implements View.OnClickListener {
 
                 if ( success ) {
                     Dialog dialog = new Dialog( this );
-                    dialog.setTitle( "Saved data!" );
+                    dialog.setTitle( "Saved model!" );
                     TextView text = new TextView( this );
                     text.setText( "Successfully saved that nonsense you wrote." );
 
