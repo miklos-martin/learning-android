@@ -71,7 +71,7 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
                 direction = null;
                 break;
             case MotionEvent.ACTION_UP:
-                long v = ( System.currentTimeMillis() - startTime ) / 100;
+                long v = ( System.currentTimeMillis() - startTime ) / 10;
 
                 endPosition = new Coordinate( event.getX(), event.getY() );
                 direction = new Vector(
