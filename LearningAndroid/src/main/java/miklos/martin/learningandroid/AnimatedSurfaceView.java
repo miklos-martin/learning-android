@@ -9,6 +9,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import miklos.martin.learningandroid.model.Coordinate;
+import miklos.martin.learningandroid.model.Vector;
+
 /**
  * Animated surface view
  */
@@ -16,24 +19,23 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
 
     SurfaceHolder holder;
     Thread animation = null;
-    boolean isRunning = false, moving = false;
+    boolean isRunning = false;
 
     Bitmap greenBall;
-    float
-        posX = 0, posY = 0, correctX, correctY, startX = 0, startY = 0, finishX = 0, finishY = 0,
-        changeX = 0, changeY = 0, animateX = 0, animateY = 0, scaleX = 0, scaleY = 0
-    ;
+    Canvas canvas;
+    Coordinate startPosition, endPosition, drawPosition;
+    Vector correction, direction;
+    long startTime = 0;
 
     public AnimatedSurfaceView ( Context context ) {
         super( context );
 
         holder = getHolder();
         greenBall = BitmapFactory.decodeResource( context.getResources(), R.drawable.greenball );
-        correctX = greenBall.getWidth()/2;
-        correctY = greenBall.getHeight()/2;
+        correction = new Vector( greenBall.getWidth()/-2, greenBall.getHeight()/-2 );
     }
 
-    public void pause() {
+    public void pause () {
         isRunning = false;
 
         while ( true ) {
@@ -49,10 +51,37 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
         animation = null;
     }
 
-    public void resume() {
+    public void resume () {
         isRunning = true;
         animation = new Thread( this );
         animation.start();
+    }
+
+    @Override
+    public boolean onTouchEvent ( MotionEvent event ) {
+        super.onTouchEvent( event );
+
+        drawPosition = new Coordinate( event.getX(), event.getY(), correction );
+
+        switch ( event.getAction() ) {
+            case MotionEvent.ACTION_DOWN:
+                startTime = System.currentTimeMillis();
+                startPosition = new Coordinate( event.getX(), event.getY() );
+                endPosition = null;
+                direction = null;
+                break;
+            case MotionEvent.ACTION_UP:
+                long v = ( System.currentTimeMillis() - startTime ) / 100;
+
+                endPosition = new Coordinate( event.getX(), event.getY() );
+                direction = new Vector(
+                        ( endPosition.getX() - startPosition.getX() ) / v,
+                        ( endPosition.getY() - startPosition.getY() ) / v
+                );
+                break;
+        }
+
+        return true;
     }
 
     @Override
@@ -64,67 +93,45 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
                 continue;
             }
 
-            try {
-                Thread.sleep( 16 );
-            } catch ( InterruptedException e ) {
-                e.printStackTrace();
-            }
-
-            Canvas canvas = holder.lockCanvas();
-            canvas.drawColor( Color.BLUE );
-
-            if ( posX != 0 && posY != 0 ) {
-                canvas.drawBitmap( greenBall, posX - correctX, posY - correctY, null );
-            }
-
-            if ( finishX != 0 && finishY != 0 ) {
-                float drawX = finishX - correctX - animateX;
-                float drawY = finishY - correctY - animateY;
-
-                if ( drawX <= 0 || drawX >= ( canvas.getWidth() - greenBall.getWidth() ) ) {
-                    scaleX = scaleX * -1;
-                }
-
-                if ( drawY  <= 0 || drawY >= ( canvas.getHeight() - greenBall.getHeight() ) ) {
-                    scaleY = scaleY * -1;
-                }
-
-                canvas.drawBitmap( greenBall, drawX, drawY, null );
-            }
-
-            animateX += scaleX;
-            animateY += scaleY;
+            sleep();
+            setUpCanvas();
+            if ( endPosition instanceof Coordinate ) calculateDrawPosition();
+            if ( drawPosition instanceof Coordinate ) drawBall();
 
             holder.unlockCanvasAndPost( canvas );
         }
     }
 
-    @Override
-    public boolean onTouchEvent ( MotionEvent event ) {
-        super.onTouchEvent( event );
+    private void sleep () {
+        try {
+            Thread.sleep( 16 );
+        } catch ( InterruptedException e ) {
+            e.printStackTrace();
+        }
+    }
 
-        posX = event.getX();
-        posY = event.getY();
+    private void setUpCanvas () {
+        canvas = holder.lockCanvas();
+        canvas.drawColor( Color.BLUE );
+    }
 
-        switch ( event.getAction() ) {
-            case MotionEvent.ACTION_DOWN:
-                moving = true;
-                startX = event.getX();
-                startY = event.getY();
-                scaleX = scaleY = animateX = animateY = finishX = finishY = 0;
-                break;
-            case MotionEvent.ACTION_UP:
-                moving = false;
-                finishX = event.getX();
-                finishY = event.getY();
-                changeX = finishX - startX;
-                changeY = finishY - startY;
-                scaleX = changeX/30;
-                scaleY = changeY/30;
-                posX = posY = 0;
-                break;
+    private void calculateDrawPosition () {
+        drawPosition.apply( direction );
+        bounce();
+    }
+
+    private void bounce () {
+
+        if ( drawPosition.getX() <= 0 || drawPosition.getX() >= ( canvas.getWidth() - greenBall.getWidth() ) ) {
+            direction.bounceX();
         }
 
-        return true;
+        if ( drawPosition.getY() <= 0 || drawPosition.getY() >= ( canvas.getHeight() - greenBall.getHeight() ) ) {
+            direction.bounceY();
+        }
+    }
+
+    private void drawBall () {
+        canvas.drawBitmap( greenBall, drawPosition.getX(), drawPosition.getY(), null );
     }
 }
