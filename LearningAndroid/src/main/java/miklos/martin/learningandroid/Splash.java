@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import hu.virgo.testjockeysdk.PlayCallback;
+import hu.virgo.testjockeysdk.core.TestJockey;
+
 /**
  * Splash screen
  */
@@ -23,23 +26,24 @@ public class Splash extends Activity {
         );
 
         setContentView( R.layout.splash );
-
-
-        Thread timer = new Thread() {
+        TestJockey.play( new PlayCallback() {
             @Override
-            public void run () {
-                try {
-                    sleep( 500 );
-                } catch ( InterruptedException e ) {
-                    e.printStackTrace();
-                } finally {
-                    Intent openMain = new Intent( Splash.this, Menu.class );
-                    startActivity( openMain );
-                }
+            public void onSuccess () {
+                Intent openMain = new Intent( Splash.this, Menu.class );
+                startActivity( openMain );
             }
-        };
 
-        timer.start();
+            @Override
+            public boolean onFail () {
+                System.out.println("faszkivan");
+                return false;
+            }
+
+            @Override
+            public void onWarning ( String s ) {
+                System.out.println(s);
+            }
+        }, this, getResources().getString( R.string.testjockey_api_key ), false );
     }
 
     @Override
