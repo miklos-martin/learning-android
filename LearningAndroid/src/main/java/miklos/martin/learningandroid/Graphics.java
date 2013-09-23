@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -8,7 +7,7 @@ import android.os.PowerManager;
 /**
  * For some graphics
  */
-public class Graphics extends Activity {
+public class Graphics extends AbstractLoggerActivity {
 
     AnimatedView animatedView;
     PowerManager.WakeLock wakeLock;

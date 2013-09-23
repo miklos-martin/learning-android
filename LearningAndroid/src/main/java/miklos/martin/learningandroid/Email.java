@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,7 @@ import android.widget.EditText;
 /**
  * Sending mail
  */
-public class Email extends Activity implements View.OnClickListener {
+public class Email extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText recipent, subject, message;
     String recipentString, subjectString, messageString;

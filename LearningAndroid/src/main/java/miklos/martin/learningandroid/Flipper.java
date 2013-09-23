@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ViewFlipper;
@@ -8,7 +7,7 @@ import android.widget.ViewFlipper;
 /**
  * ViewFlipper example
  */
-public class Flipper extends Activity implements View.OnClickListener {
+public class Flipper extends AbstractLoggerActivity implements View.OnClickListener {
 
     ViewFlipper flipper;
 

@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ import android.widget.ImageButton;
 /**
  * Simple Browser
  */
-public class Browser extends Activity implements View.OnClickListener {
+public class Browser extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText url;
     Button go;

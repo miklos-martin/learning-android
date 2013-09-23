@@ -1,12 +1,11 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 /**
  * Dialog
  */
-public class About extends Activity {
+public class About extends AbstractLoggerActivity {
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {

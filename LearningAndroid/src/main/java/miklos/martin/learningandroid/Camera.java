@@ -12,7 +12,7 @@ import android.widget.ImageView;
 /**
  * Playing with the camera
  */
-public class Camera extends Activity implements View.OnClickListener {
+public class Camera extends AbstractLoggerActivity implements View.OnClickListener {
 
     ImageView picture;
     ImageButton capture;

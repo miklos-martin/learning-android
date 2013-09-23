@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 /**
  * This activity receives data from another
  */
-public class Opened extends Activity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class Opened extends AbstractLoggerActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     TextView question, display;
     RadioGroup answer;

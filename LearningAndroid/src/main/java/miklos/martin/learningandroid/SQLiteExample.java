@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 /**
  * SQLite example
  */
-public class SQLiteExample extends Activity implements View.OnClickListener {
+public class SQLiteExample extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText name, awesomeness;
     Button update, load;

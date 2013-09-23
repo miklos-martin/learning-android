@@ -1,13 +1,12 @@
 package miklos.martin.learningandroid;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class Tabs extends Activity implements View.OnClickListener {
+public class Tabs extends AbstractLoggerActivity implements View.OnClickListener {
 
     TabHost tabHost;
     Button start, stop, addTab;

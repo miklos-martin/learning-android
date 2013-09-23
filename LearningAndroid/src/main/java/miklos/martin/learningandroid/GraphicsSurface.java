@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -8,7 +7,7 @@ import android.view.WindowManager;
 /**
  * Activity with a custom SurfaceView
  */
-public class GraphicsSurface extends Activity {
+public class GraphicsSurface extends AbstractLoggerActivity {
 
     AnimatedSurfaceView animatedSurfaceView;
 

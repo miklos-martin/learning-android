@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 /**
  * Parent for data manipulator activities
  */
-public abstract class AbstractDataManipulation extends Activity  implements View.OnClickListener {
+public abstract class AbstractDataManipulation extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText sharedData;
     Button save, load;

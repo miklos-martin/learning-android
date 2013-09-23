@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -9,7 +8,7 @@ import android.view.View;
 /**
  * Playing little sounds
  */
-public class SoundStuff extends Activity implements View.OnClickListener {
+public class SoundStuff extends AbstractLoggerActivity implements View.OnClickListener {
 
     SoundPool soundPool;
     int explosion = 0;

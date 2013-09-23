@@ -2,14 +2,13 @@ package miklos.martin.learningandroid;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SlidingDrawer;
 
-public class Slider extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, SlidingDrawer.OnDrawerOpenListener {
+public class Slider extends AbstractLoggerActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, SlidingDrawer.OnDrawerOpenListener {
 
     Button handle1, handle2, handle3, handle4;
     CheckBox checkBox;

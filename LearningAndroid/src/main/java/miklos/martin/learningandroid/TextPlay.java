@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ import java.util.Random;
 /**
  * Playing with text
  */
-public class TextPlay extends Activity implements View.OnClickListener {
+public class TextPlay extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText input;
     Button checkCommand;

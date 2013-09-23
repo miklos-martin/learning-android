@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +23,7 @@ import java.io.OutputStream;
 /**
  * External data manipulation
  */
-public class ExternalData extends Activity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class ExternalData extends AbstractLoggerActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private TextView canRead, canWrite;
     private String state;

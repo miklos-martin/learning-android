@@ -1,6 +1,5 @@
 package miklos.martin.learningandroid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 /**
  * This activity sends data to another
  */
-public class Data extends Activity implements View.OnClickListener {
+public class Data extends AbstractLoggerActivity implements View.OnClickListener {
 
     EditText sendText;
     Button start, startForResult;

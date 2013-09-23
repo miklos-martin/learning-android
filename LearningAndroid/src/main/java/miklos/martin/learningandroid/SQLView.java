@@ -1,9 +1,6 @@
 package miklos.martin.learningandroid;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -16,7 +13,7 @@ import miklos.martin.learningandroid.model.AwesomePerson;
 /**
  * Show model from SQLite db
  */
-public class SQLView extends Activity {
+public class SQLView extends AbstractLoggerActivity {
 
     TableLayout table;
     AwesomeOrNot model;
