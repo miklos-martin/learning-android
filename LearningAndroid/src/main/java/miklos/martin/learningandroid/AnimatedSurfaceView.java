@@ -10,6 +10,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import hu.virgo.testjockeysdk.core.TestJockey;
+import hu.virgo.testjockeysdk.entitiy.Variable;
 import miklos.martin.learningandroid.model.Coordinate;
 import miklos.martin.learningandroid.model.Vector;
 
@@ -124,12 +125,20 @@ public class AnimatedSurfaceView extends SurfaceView implements Runnable {
     private void bounce () {
 
         if ( drawPosition.getX() <= 0 || drawPosition.getX() >= ( canvas.getWidth() - greenBall.getWidth() ) ) {
-            TestJockey.pinFlag( "Hit wall horizontally", null, true, this);
+            Variable[] variables = new Variable[2];
+            variables[0] = new Variable( "hitX", Variable.Type.DOUBLE, drawPosition.getX() );
+            variables[1] = new Variable( "hitY", Variable.Type.DOUBLE, drawPosition.getY() );
+
+            TestJockey.pinFlag( "Hit wall horizontally", variables, true, this);
             direction.bounceX();
         }
 
         if ( drawPosition.getY() <= 0 || drawPosition.getY() >= ( canvas.getHeight() - greenBall.getHeight() ) ) {
-            TestJockey.pinFlag( "Hit wall vertically", null, true, this);
+            Variable[] variables = new Variable[2];
+            variables[0] = new Variable( "hitX", Variable.Type.DOUBLE, drawPosition.getX() );
+            variables[1] = new Variable( "hitY", Variable.Type.DOUBLE, drawPosition.getY() );
+
+            TestJockey.pinFlag( "Hit wall vertically", variables, true, this);
             direction.bounceY();
         }
     }
