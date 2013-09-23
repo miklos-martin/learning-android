@@ -44,6 +44,17 @@ public class SQLView extends Activity {
                 TextView name = new TextView( SQLView.this );
                 TextView awesome = new TextView( SQLView.this );
 
+                name.setLayoutParams( new TableRow.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        1f
+                ) );
+                awesome.setLayoutParams( new TableRow.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        1f
+                ) );
+
                 name.setText( row.getName() );
                 if ( row.isAwesome() ) {
                     awesome.setText( "Yes" );

@@ -21,11 +21,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Name"
+                android:textSize="@dimen/default_font_size"
+                android:textStyle="bold"
                 android:layout_weight="1"/>
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:textSize="@dimen/default_font_size"
+                android:textStyle="bold"
                 android:text="Awesome?"
                 android:layout_weight="1"/>
         </TableRow>
