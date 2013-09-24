@@ -1,19 +1,21 @@
 package miklos.martin.learningandroid;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.List;
+
 /**
  * Playing with accelerometer
  */
-public class Accelerate extends Activity implements SensorEventListener {
+public class Accelerate extends Activity {
 
-    GreenBallSurfaceView view;
+    AcceleratedGreenBall view;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -25,7 +27,15 @@ public class Accelerate extends Activity implements SensorEventListener {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
 
-        view = new GreenBallSurfaceView( this );
+        view = new AcceleratedGreenBall( this );
+
+        SensorManager sm = (SensorManager) getSystemService( Context.SENSOR_SERVICE );
+        List<Sensor> sensorList = sm.getSensorList( Sensor.TYPE_ACCELEROMETER );
+        if ( sensorList.size() > 0 ) {
+            Sensor accelerometer = sensorList.get( 0 );
+            sm.registerListener( view, accelerometer, SensorManager.SENSOR_DELAY_NORMAL );
+        }
+
         setContentView( view );
     }
 
@@ -41,15 +51,5 @@ public class Accelerate extends Activity implements SensorEventListener {
         super.onResume();
 
         view.resume();
-    }
-
-    @Override
-    public void onSensorChanged ( SensorEvent sensorEvent ) {
-
-    }
-
-    @Override
-    public void onAccuracyChanged ( Sensor sensor, int i ) {
-
     }
 }

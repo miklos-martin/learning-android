@@ -14,7 +14,7 @@ import miklos.martin.learningandroid.model.Vector;
 /**
  * Animated surface view
  */
-public class GreenBallSurfaceView extends SurfaceView implements Runnable {
+public abstract class GreenBallSurfaceView extends SurfaceView implements Runnable {
 
     SurfaceHolder holder;
     Thread animation = null;
