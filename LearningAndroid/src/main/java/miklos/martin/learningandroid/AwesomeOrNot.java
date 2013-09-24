@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,8 +59,7 @@ public class AwesomeOrNot {
 
     public ArrayList<AwesomePerson> getData () {
 
-        String[] columns = new String[] { ID, NAME, AWESOMENESS };
-        Cursor cursor = database.query( DATABASE_TABLE, columns, null, null, null, null, null );
+        Cursor cursor = database.query( DATABASE_TABLE, getColumns(), null, null, null, null, null );
         ArrayList<AwesomePerson> result = new ArrayList<AwesomePerson>();
 
         int iId = cursor.getColumnIndex( ID );
@@ -71,6 +71,40 @@ public class AwesomeOrNot {
         }
 
         return result;
+    }
+
+    public AwesomePerson find ( long rowId ) throws SQLDataException {
+
+        Cursor cursor = database.query( DATABASE_TABLE, getColumns(), ID + "=" + rowId, null, null, null, null );
+
+        if ( cursor.getCount() == 0 ) {
+            throw new SQLDataException( String.format( "Row not found by id [%d]!", rowId ) );
+        }
+
+        int iId = cursor.getColumnIndex( ID );
+        int iName = cursor.getColumnIndex( NAME );
+        int iAwesomeness = cursor.getColumnIndex( AWESOMENESS );
+
+        cursor.moveToFirst();
+
+        return new AwesomePerson( cursor.getInt( iId ), cursor.getString( iName ), cursor.getInt( iAwesomeness ) );
+    }
+
+    private String[] getColumns () {
+        return new String[] { ID, NAME, AWESOMENESS };
+    }
+
+    public int update ( AwesomePerson row ) {
+
+        ContentValues values = new ContentValues();
+        values.put( NAME, row.getName() );
+        values.put( AWESOMENESS, row.getAwesomeness() );
+
+        return database.update( DATABASE_TABLE, values, ID + "=" + row.getId(), null );
+    }
+
+    public void delete ( AwesomePerson row ) {
+        database.delete( DATABASE_TABLE, ID + "=" + row.getId(), null );
     }
 
     private static class DbHelper extends SQLiteOpenHelper {

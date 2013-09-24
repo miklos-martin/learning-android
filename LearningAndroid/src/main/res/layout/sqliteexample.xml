@@ -36,17 +36,79 @@
         android:id="@+id/etSQLAwesomeness"
         android:layout_gravity="left|center_vertical"/>
 
-    <Button
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:weightSum="5"
+                  android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Insert into SQLite db"
+            android:id="@+id/bInsert"
+            android:layout_gravity="left|center_vertical"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Load"
+            android:id="@+id/bLoad"
+            android:layout_gravity="left|center_vertical"/>
+
+    </LinearLayout>
+
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update SQLite db"
-        android:id="@+id/bUpdate"
+        android:text="Enter Id"
         android:layout_gravity="left|center_vertical"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Load"
-        android:id="@+id/bLoad"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/etSQLId"
         android:layout_gravity="left|center_vertical"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:weightSum="3"
+                  android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Update"
+            android:enabled="false"
+            android:id="@+id/bUpdate"
+            android:layout_gravity="left|center_vertical"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Load"
+            android:enabled="false"
+            android:id="@+id/bLoadEntry"
+            android:layout_gravity="left|center_vertical"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete"
+            android:enabled="false"
+            android:id="@+id/bDelete"
+            android:layout_gravity="left|center_vertical"/>
+
+    </LinearLayout>
 </LinearLayout>
