@@ -101,9 +101,9 @@ public class SQLiteExample extends Activity implements View.OnClickListener, Vie
 
                 try {
                     aon.open();
-                    int result = aon.update( editedRow );
-                    Toast t = Toast.makeText( this, String.valueOf( result ), Toast.LENGTH_LONG );
-                    t.show();
+                    editedRow.setName( name.getText().toString() );
+                    editedRow.setAwesomeness( Integer.parseInt( awesomeness.getText().toString() ) );
+                    aon.update( editedRow );
                     aon.close();
                 } catch ( SQLException e ) {
                     e.printStackTrace();

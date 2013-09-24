@@ -23,8 +23,16 @@ public class AwesomePerson {
         return name;
     }
 
+    public void setName ( String name ) {
+        this.name = name;
+    }
+
     public int getAwesomeness () {
         return awesomeness;
+    }
+
+    public void setAwesomeness ( int awesomeness ) {
+        this.awesomeness = awesomeness;
     }
 
     public boolean isAwesome() {
