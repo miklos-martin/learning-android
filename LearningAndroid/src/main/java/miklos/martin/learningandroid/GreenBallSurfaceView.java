@@ -73,7 +73,7 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
     }
 
 
-    private void sleep () {
+    protected void sleep () {
         try {
             Thread.sleep( 16 );
         } catch ( InterruptedException e ) {

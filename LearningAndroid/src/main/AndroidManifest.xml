@@ -130,7 +130,8 @@
         </activity>
         <activity
             android:name="miklos.martin.learningandroid.Accelerate"
-            android:label="@string/accelerate" >
+            android:label="@string/accelerate"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
