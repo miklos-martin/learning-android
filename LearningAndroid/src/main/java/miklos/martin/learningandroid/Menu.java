@@ -18,7 +18,7 @@ public class Menu extends ListActivity {
             "Graphics", "GraphicsSurface", "SoundStuff",
             "Slider", "Tabs", "Browser", "Flipper",
             "SharedPrefs", "InternalData", "ExternalData", "SQLiteExample",
-            "Accelerate"
+            "Accelerate", "Maps"
     };
 
     @Override
