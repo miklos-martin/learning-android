@@ -15,6 +15,7 @@ import java.util.List;
 public class Maps extends MapActivity {
 
     MapView  map;
+    long start, stop;
 
     @Override
     protected void onCreate ( Bundle bundle ) {
@@ -40,7 +41,18 @@ public class Maps extends MapActivity {
 
         @Override
         public boolean onTouchEvent ( MotionEvent event, MapView mapView ) {
-            return super.onTouchEvent( event, mapView );
+
+            switch ( event.getAction() ) {
+                case MotionEvent.ACTION_DOWN:
+                    start = event.getEventTime();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    stop = event.getEventTime();
+                    break;
+            }
+
+
+            return false;
         }
     }
 }
