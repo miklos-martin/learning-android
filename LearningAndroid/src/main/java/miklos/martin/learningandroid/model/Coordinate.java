@@ -28,4 +28,23 @@ public class Coordinate {
         x += vector.getDeltaX();
         y += vector.getDeltaY();
     }
+
+    /**
+     * Do not let this coordinate out of the bouds defined by theese two coordinates
+     *
+     * @param topLeft
+     * @param bottomRight
+     */
+    public void setBounds ( Coordinate topLeft, Coordinate bottomRight ) {
+        x = Math.max( topLeft.getX(), x );
+        x = Math.min( bottomRight.getX(), x );
+
+        y = Math.max( topLeft.getY(), y );
+        y = Math.min( bottomRight.getY(), y );
+    }
+
+    @Override
+    public String toString () {
+        return String.format( "Coordinate( %s, %s )", String.valueOf( x ), String.valueOf( y ) );
+    }
 }

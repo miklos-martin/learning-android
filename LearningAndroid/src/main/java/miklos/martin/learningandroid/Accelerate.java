@@ -53,10 +53,10 @@ public class Accelerate extends Activity {
         super.onPause();
 
         wakeLock.release();
+        view.pause();
         if ( accelerometer != null ) {
             sm.unregisterListener( view );
         }
-        view.pause();
     }
 
     @Override
@@ -64,9 +64,9 @@ public class Accelerate extends Activity {
         super.onResume();
 
         wakeLock.acquire();
+        view.resume();
         if ( accelerometer != null ) {
             sm.registerListener( view, accelerometer, SensorManager.SENSOR_DELAY_NORMAL );
         }
-        view.resume();
     }
 }

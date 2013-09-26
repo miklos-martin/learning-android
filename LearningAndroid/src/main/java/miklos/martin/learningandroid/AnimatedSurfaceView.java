@@ -49,10 +49,4 @@ public class AnimatedSurfaceView extends GreenBallSurfaceView implements Runnabl
 
         return true;
     }
-
-    @Override
-    protected void doRun () {
-        if ( endPosition instanceof Coordinate ) calculateDrawPosition();
-        super.doRun();
-    }
 }

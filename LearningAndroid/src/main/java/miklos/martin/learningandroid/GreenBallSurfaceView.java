@@ -72,7 +72,6 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
         }
     }
 
-
     protected void sleep () {
         try {
             Thread.sleep( 16 );
@@ -85,17 +84,18 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
         canvas = holder.lockCanvas();
         canvas.drawColor( Color.BLUE );
 
-        if ( !(drawPosition instanceof Coordinate) ) {
+        if ( drawPosition == null ) {
             centerBall();
         }
     }
 
-    private void centerBall () {
+    protected void centerBall () {
         drawPosition = new Coordinate( canvas.getWidth()/2, canvas.getHeight()/2, correction );
     }
 
     protected void doRun () {
-        if ( drawPosition instanceof Coordinate ) drawBall();
+        if ( direction != null ) calculateDrawPosition();
+        if ( drawPosition != null ) drawBall();
     }
 
     protected void calculateDrawPosition () {

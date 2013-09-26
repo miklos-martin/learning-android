@@ -26,4 +26,9 @@ public class Vector {
     public void bounceY() {
         deltaY *= -1;
     }
+
+    @Override
+    public String toString () {
+        return String.format( "Vector( %s, %s )", String.valueOf( deltaX ), String.valueOf( deltaY ) );
+    }
 }
