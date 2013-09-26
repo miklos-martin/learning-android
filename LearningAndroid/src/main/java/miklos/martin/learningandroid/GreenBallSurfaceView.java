@@ -25,6 +25,8 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
     Coordinate drawPosition;
     Vector correction, direction;
 
+    float canvasWidth, canvasHeight;
+
     public GreenBallSurfaceView ( Context context ) {
         super( context );
 
@@ -80,9 +82,12 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
         }
     }
 
-    private void setUpCanvas () {
+    protected void setUpCanvas () {
         canvas = holder.lockCanvas();
         canvas.drawColor( Color.BLUE );
+
+        canvasWidth = canvas.getWidth();
+        canvasHeight = canvas.getHeight();
 
         if ( drawPosition == null ) {
             centerBall();
@@ -90,7 +95,7 @@ public abstract class GreenBallSurfaceView extends SurfaceView implements Runnab
     }
 
     protected void centerBall () {
-        drawPosition = new Coordinate( canvas.getWidth()/2, canvas.getHeight()/2, correction );
+        drawPosition = new Coordinate( canvasWidth/2, canvasHeight/2, correction );
     }
 
     protected void doRun () {
