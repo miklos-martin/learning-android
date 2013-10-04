@@ -7,6 +7,7 @@ import android.graphics.Path;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 
 import java.util.Random;
@@ -22,10 +23,15 @@ public class AcceleratedGreenBall extends GreenBallSurfaceView implements Sensor
     private boolean ballIsLocked;
     Coordinate holePosition;
     double radius;
+    private Vibrator vibrator;
 
     public AcceleratedGreenBall ( Context context ) {
         super( context );
         radius = (greenBall.getWidth()/2) * 1.2;
+    }
+
+    public void setVibrator ( Vibrator vibrator ) {
+        this.vibrator = vibrator;
     }
 
     @Override
@@ -82,8 +88,16 @@ public class AcceleratedGreenBall extends GreenBallSurfaceView implements Sensor
         super.doRun();
 
         if ( ballIsInHole() ) {
+            vibrate();
             rePosititonHole();
             centerBall();
+        }
+    }
+
+    private void vibrate () {
+
+        if ( vibrator != null ) {
+            vibrator.vibrate( 300 );
         }
     }
 

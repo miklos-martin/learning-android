@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.Vibrator;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -39,6 +40,9 @@ public class Accelerate extends Activity {
 
         view = new AcceleratedGreenBall( this );
         sm = (SensorManager) getSystemService( Context.SENSOR_SERVICE );
+
+        Vibrator vibrator = (Vibrator) getSystemService( Context.VIBRATOR_SERVICE );
+        view.setVibrator( vibrator );
 
         List<Sensor> sensorList = sm.getSensorList( Sensor.TYPE_ACCELEROMETER );
         if ( sensorList.size() > 0 ) {
