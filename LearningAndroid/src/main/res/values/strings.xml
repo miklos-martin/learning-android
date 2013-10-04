@@ -35,5 +35,6 @@
     <string name="externaldata">External data example</string>
     <string name="sqlite">SQLite example</string>
     <string name="accelerate">Accelerate</string>
+    <string name="http">HttpClientExample</string>
 
 </resources>

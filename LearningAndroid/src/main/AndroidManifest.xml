@@ -131,11 +131,15 @@
         <activity
             android:name="miklos.martin.learningandroid.SQLView"
             android:label="@string/sqlite" >
-        </activity>
         <activity
             android:name="miklos.martin.learningandroid.Accelerate"
             android:label="@string/accelerate"
             android:screenOrientation="portrait" >
+        </activity>
+        </activity>
+        <activity
+            android:name="miklos.martin.learningandroid.HttpExample"
+            android:label="@string/http" >
         </activity>
     </application>
 
