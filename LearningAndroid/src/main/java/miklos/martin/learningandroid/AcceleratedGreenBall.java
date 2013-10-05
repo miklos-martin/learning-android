@@ -23,15 +23,15 @@ public class AcceleratedGreenBall extends GreenBallSurfaceView implements Sensor
     private boolean ballIsLocked;
     Coordinate holePosition;
     double radius;
-    private Vibrator vibrator;
+    private GreenBallListener listener;
 
     public AcceleratedGreenBall ( Context context ) {
         super( context );
         radius = (greenBall.getWidth()/2) * 1.2;
     }
 
-    public void setVibrator ( Vibrator vibrator ) {
-        this.vibrator = vibrator;
+    public void setGreenBallListener( GreenBallListener listener ) {
+        this.listener = listener;
     }
 
     @Override
@@ -88,16 +88,13 @@ public class AcceleratedGreenBall extends GreenBallSurfaceView implements Sensor
         super.doRun();
 
         if ( ballIsInHole() ) {
-            vibrate();
+
+            if ( listener != null ) {
+                listener.onFellInHole();
+            }
+
             rePosititonHole();
             centerBall();
-        }
-    }
-
-    private void vibrate () {
-
-        if ( vibrator != null ) {
-            vibrator.vibrate( 300 );
         }
     }
 

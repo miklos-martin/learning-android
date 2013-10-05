@@ -15,16 +15,18 @@ import java.util.List;
 /**
  * Playing with accelerometer
  */
-public class Accelerate extends Activity {
+public class Accelerate extends Activity implements GreenBallListener {
 
     PowerManager.WakeLock wakeLock;
     AcceleratedGreenBall view;
     SensorManager sm;
     Sensor accelerometer;
+    Vibrator vibrator;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
 
+        vibrator = (Vibrator) getSystemService( Context.VIBRATOR_SERVICE );
         PowerManager powerManager = (PowerManager) getSystemService( Context.POWER_SERVICE );
         wakeLock = powerManager.newWakeLock( PowerManager.FULL_WAKE_LOCK, "accelerate-activity" );
 
@@ -38,11 +40,11 @@ public class Accelerate extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
 
+
         view = new AcceleratedGreenBall( this );
         sm = (SensorManager) getSystemService( Context.SENSOR_SERVICE );
 
-        Vibrator vibrator = (Vibrator) getSystemService( Context.VIBRATOR_SERVICE );
-        view.setVibrator( vibrator );
+        view.setGreenBallListener( this );
 
         List<Sensor> sensorList = sm.getSensorList( Sensor.TYPE_ACCELEROMETER );
         if ( sensorList.size() > 0 ) {
@@ -72,5 +74,10 @@ public class Accelerate extends Activity {
         if ( accelerometer != null ) {
             sm.registerListener( view, accelerometer, SensorManager.SENSOR_DELAY_NORMAL );
         }
+    }
+
+    @Override
+    public void onFellInHole () {
+        vibrator.vibrate( 150 );
     }
 }
